@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --text-color: white;
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.05);
+  --surface-color-hover: rgba(255, 0, 242, 0.2);
+  --social-link-hover: rgba(234, 0, 255, 0.2);
+  --switch-bg-url: url(./assets/moon-stars.svg);
+  --bg-color: rgb(2, 0, 36);
+  --bg-gradient: linear-gradient(
+    140deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(63, 5, 124, 1) 70%,
+    rgba(134, 0, 255, 1) 96%
+  );
+}
+.light {
+  --text-color: rgb(255, 255, 255);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.082);
+  --surface-color-hover: rgba(255, 0, 242, 0.2);
+  --social-link-hover: rgba(234, 0, 255, 0.2);
+  --switch-bg-url: url(./assets/sun.svg);
+  --bg-color: rgb(2, 0, 36);
+  --bg-gradient: linear-gradient(
+    310deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgb(78, 4, 156) 70%,
+    rgba(134, 0, 255, 1) 96%
+  );
+}
+body {
+  background: var(--bg-color);
+  background: var(--bg-gradient);
+  height: 100vh;
+}
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+#container {
+  max-width: 580px;
+  padding: 0 24px;
+  margin: auto;
+  width: 100%;
+  margin: 250px auto 0px;
+}
+
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+#profile img {
+  width: 130px;
+}
+#switch {
+  position: relative;
+  width: 64px;
+  margin: auto;
+  padding: 4px 0;
+}
+
+#switch button {
+  width: 32px;
+  height: 32px;
+  background: white var(--switch-bg-url) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: slide-out 0.4s forwards;
+}
+.light #switch button {
+  animation: slide-in 0.4s forwards;
+}
+#switch button:hover {
+  outline: 8px solid var(--surface-color-hover);
+}
+#switch span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* links */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+/* só funciona com display: flex justify-content alinha com o eixo y, align-items alinha com o eixo x*/
+ul input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 25px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500px;
+  transition: background 0.2s;
+}
+#cadastro {
+  display: flex;
+  flex-direction: column;
+}
+#cadastro button {
+  padding: 16px 25px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+#cadastro a {
+  text-align: center;
+  padding: 16px 25px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+/* pseudo-seletor */
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 1.5px solid var(--text-color);
+}
+#social-links {
+  display: flex;
+  padding: 24px 0;
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+}
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: background 0.2s;
+  border-radius: 50%;
+}
+#social-links a:hover {
+  background: var(--social-link-hover);
+  padding: 16px;
+}
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes slide-out {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
+}
